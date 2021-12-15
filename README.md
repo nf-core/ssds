@@ -16,7 +16,6 @@
 
 ## Introduction
 
-<!-- TODO nf-core: Write a 1-2 sentence summary of what data the pipeline is for and what it does -->
 **nf-core/ssds** is a bioinformatics best-practice analysis pipeline for Single-Stranded DNA Sequencing (SSDS) pipeline.
 
 The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool to run tasks across multiple compute infrastructures in a very portable manner. It uses Docker/Singularity containers making installation trivial and results highly reproducible. The [Nextflow DSL2](https://www.nextflow.io/docs/latest/dsl2.html) implementation of this pipeline uses one container per process which makes it much easier to maintain and update software dependencies. Where possible, these processes have been submitted to and installed from [nf-core/modules](https://github.com/nf-core/modules) in order to make them available to all nf-core pipelines, and to everyone within the Nextflow community!
@@ -26,10 +25,16 @@ On release, automated continuous integration tests run the pipeline on a full-si
 
 ## Pipeline summary
 
-<!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
-
 1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
-2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
+2. Quality trim reads  ([`Trimgalore`](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/))
+3. Align with BWA MEM ([`BWA`](https://github.com/lh3/bwa))
+4. Sort BAM ([`Picard`](https://broadinstitute.github.io/picard/))
+5. Index BAM ([`Samtools`](http://www.htslib.org/))
+6. Parse ssDNA / dsDNA from SSDS BAM ([`SSDS`](https://github.com/kevbrick/ssds_pipeline_accessory_scripts))
+7. Make coverage tracks ([`Bedtools`](https://bedtools.readthedocs.io/en/latest/)) ([`UCSC tools`](https://hgdownload.soe.ucsc.edu/downloads.html#utilities_downloads))
+8. Calculate enrichment ([`SSDS`](https://github.com/kevbrick/ssds_pipeline_accessory_scripts))
+9. Other QC ([`Deeptools`](https://deeptools.readthedocs.io/en/develop/))
+10. Generate QC report([`MultiQC`](http://multiqc.info/))
 
 ## Quick Start
 
@@ -52,10 +57,8 @@ On release, automated continuous integration tests run the pipeline on a full-si
 
 4. Start running your own analysis!
 
-    <!-- TODO nf-core: Update the example "typical command" below used to run the pipeline -->
-
     ```console
-    nextflow run nf-core/ssds -profile <docker/singularity/podman/shifter/charliecloud/conda/institute> --input samplesheet.csv --genome GRCh37
+    nextflow run nf-core/ssds -profile <docker/singularity/podman/shifter/charliecloud/conda/institute> --input samplesheet.csv --genome mm10
     ```
 
 ## Documentation
@@ -67,8 +70,7 @@ The nf-core/ssds pipeline comes with documentation about the pipeline [usage](ht
 nf-core/ssds was originally written by Kevin Brick.
 
 We thank the following people for their extensive assistance in the development of this pipeline:
-
-<!-- TODO nf-core: If applicable, make list of people who have also contributed -->
+Flor Pratto
 
 ## Contributions and Support
 
@@ -81,7 +83,6 @@ For further information or help, don't hesitate to get in touch on the [Slack `#
 <!-- TODO nf-core: Add citation for pipeline after first release. Uncomment lines below and update Zenodo doi and badge at the top of this file. -->
 <!-- If you use  nf-core/ssds for your analysis, please cite it using the following doi: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX) -->
 
-<!-- TODO nf-core: Add bibliography of tools and data used in your pipeline -->
 An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
 
 You can cite the `nf-core` publication as follows:
