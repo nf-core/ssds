@@ -42,10 +42,10 @@ Currently, the pipeline treats each entry row of the samplesheet as an independe
 
 ## Genomic intervals input
 
-The SSDS pipeline can optionally assess the enrichment of your library at a defined set of genomic intervals. These intervals must be provided as BED files and defined in the conf/ssds_intervals.config configuration file. There is no limit to the number of interval files. The sets of intervals to use can be specified at the command line using :
+The SSDS pipeline can optionally assess the enrichment of your library at a defined set of genomic intervals. These intervals must be provided as BED files and defined in the conf/spot_intervals.config configuration file. There is no limit to the number of interval files. The sets of intervals to use can be specified at the command line using :
 
 ```console
-----ssds_intervals_genome '[intervals genome (in config file)]'
+----spot_intervals_genome '[intervals genome (in config file)]'
 ```
 
 If this argument is not provided, the pipeline will attempt to find intervals for the genome passed using the -g parameter. 

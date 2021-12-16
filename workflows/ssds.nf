@@ -14,9 +14,9 @@ def checkPathParamList = [ params.input, params.multiqc_config ]
 for (param in checkPathParamList) { if (param) { file(param, checkIfExists: true) } }
 
 // Check genome for ssds intervals
-def ssds_intervals_genome = params.ssds_intervals_genome
-if (!ssds_intervals_genome) {
-    ssds_intervals_genome = params.genome ? params.genome : null
+def spot_intervals_genome = params.spot_intervals_genome
+if (!spot_intervals_genome) {
+    spot_intervals_genome = params.genome ? params.genome : null
 }
 
 // Check mandatory parameters
@@ -48,16 +48,16 @@ ch_multiqc_custom_config = params.multiqc_config ? Channel.fromPath(params.multi
     SSDS INTERVAL FILES
 ========================================================================================
 */
-def ch_ssds_intervals
+def ch_spot_intervals
 
-if (params.ssds_interval_beds["${ssds_intervals_genome}"]){
-    ch_ssds_intervals = Channel.from(params.ssds_interval_beds["${ssds_intervals_genome}"])
+if (params.spot_interval_beds["${spot_intervals_genome}"]){
+    ch_spot_intervals = Channel.from(params.spot_interval_beds["${spot_intervals_genome}"])
                                    .map {[[id:it.id, 
-                                           genome:ssds_intervals_genome], 
+                                           genome:spot_intervals_genome], 
                                            file(it.bed, checkIfExists: true)]}
 }else{
     System.err.println("WARNING: No SSDS intervals found for SPoT analysis. SPoT analyses will not be performed.")
-    ch_ssds_intervals = Channel.empty()
+    ch_spot_intervals = Channel.empty()
 }
 
 /*
@@ -154,7 +154,7 @@ workflow SSDS {
     ch_bams_for_spot = ALIGN_SS.out.bam.map { [["id":it[0].name, "single-end":it[0]."single-end"], it[1], it[2], it[1].name, it[0].type ] }
                                   .groupTuple(by:0)
     
-    ch_intervals_for_spot = ch_ssds_intervals.map{[[genome:it[0].genome],it[1]]}.groupTuple(by:0).collect()
+    ch_intervals_for_spot = ch_spot_intervals.map{[[genome:it[0].genome],it[1]]}.groupTuple(by:0).collect()
     
     CALCULATESPOT (
         ch_bams_for_spot, ch_genome_index, ch_intervals_for_spot
