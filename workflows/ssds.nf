@@ -22,14 +22,6 @@ if (!spot_intervals_genome) {
 // Check mandatory parameters
 if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input samplesheet not specified!' }
 
-if (params.bwa)   {
-    if (file(params.bwa).isFile()){ 
-        ch_bwa = file(params.bwa).getParent() 
-    } else {
-        ch_bwa = file(params.bwa) 
-    }
-} 
-
 ch_genome_index  = file("${params.fasta}.fai", checkIfExists: true) 
 ch_makewin_input = [ [ id:"${params.genome}"],
                      file("${params.fasta}.fai", checkIfExists: true) ]
@@ -122,8 +114,14 @@ workflow SSDS {
 
     //
     // MODULE/SUBWORKFLOW: Index genome if required, then run SSDS alignment sub-workflow    
-    //
-    if (!params.bwa){
+    //    
+    if (params.bwa) {
+        if (file(params.bwa).isFile()){ 
+            ch_bwa = file(params.bwa).getParent() 
+        } else {
+            ch_bwa = file(params.bwa) 
+        }
+    } else {
         BWA_INDEX (
             file(params.fasta)
         )
