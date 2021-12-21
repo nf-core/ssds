@@ -1,5 +1,14 @@
 # nf-core/ssds: Citations
 
+## [SSDS method development](https://genome.cshlp.org/content/22/5/957)
+> Khil P, Smagulova F, Brick K, Camerini-Otero RD, Petukhova G. Sensitive mapping of recombination hotspots using sequencing-based detection of ssDNA. Genome Research. 2012 May;22(5):957-65. doi: 10.1101/gr.130583.111. Epub 2012 Feb 24. PubMed PMID:  22367190; PubMed Central PMCID: PMC3337440.
+
+## [SSDS for mapping meiotic DSB hotspots](https://doi.org/10.1038/nature11089)
+> Brick K, Smagulova F, Khil P, Camerini-Otero RD, Petukhova G. Genetic recombination is directed away from functional genomic elements in mice. Nature 2012 May 13;485(7400):642-5. doi: 10.1038/nature11089. PubMed PMID: 22660327; PubMed Central PMCID: PMC3367396.
+
+## [SSDS for mapping replication origins](https://doi.org/10.1016/j.cell.2021.06.025)
+> Pratto F, Brick K, Cheng G, Lam KWG, Cloutier JM, Dahiya D, Wellard SR, Jordan PW, Camerini-Otero RD. Meiotic recombination mirrors patterns of germline replication in mice and humans. Cell 2021. Aug 5(184;16) 4251-4267. doi: 10.1016/j.cell.2021.06.025 PubMed PMID:  34260899; PubMed Central PMCID:  PMC8591710.
+        
 ## [nf-core](https://pubmed.ncbi.nlm.nih.gov/32055031/)
 
 > Ewels PA, Peltzer A, Fillinger S, Patel H, Alneberg J, Wilm A, Garcia MU, Di Tommaso P, Nahnsen S. The nf-core framework for community-curated bioinformatics pipelines. Nat Biotechnol. 2020 Mar;38(3):276-278. doi: 10.1038/s41587-020-0439-x. PubMed PMID: 32055031.
@@ -47,16 +56,3 @@
 
 * [Singularity](https://pubmed.ncbi.nlm.nih.gov/28494014/)
     > Kurtzer GM, Sochat V, Bauer MW. Singularity: Scientific containers for mobility of compute. PLoS One. 2017 May 11;12(5):e0177459. doi: 10.1371/journal.pone.0177459. eCollection 2017. PubMed PMID: 28494014; PubMed Central PMCID: PMC5426675.
-
-    # nf-core/ssds: Citations
-
-    ## [nf-core](https://pubmed.ncbi.nlm.nih.gov/32055031/)
-
-    > Ewels PA, Peltzer A, Fillinger S, Patel H, Alneberg J, Wilm A, Garcia MU, Di Tommaso P, Nahnsen S. The nf-core framework for community-curated bioinformatics pipelines. Nat Biotechnol. 2020 Mar;38(3):276-278. doi: 10.1038/s41587-020-0439-x. PubMed PMID: 32055031.
-
-    ## [Nextflow](https://pubmed.ncbi.nlm.nih.gov/28398311/)
-
-    > Di Tommaso P, Chatzou M, Floden EW, Barja PP, Palumbo E, Notredame C. Nextflow enables reproducible computational workflows. Nat Biotechnol. 2017 Apr 11;35(4):316-319. doi: 10.1038/nbt.3820. PubMed PMID: 28398311.
-
-    ## Pipeline tools
-
