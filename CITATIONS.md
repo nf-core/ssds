@@ -15,6 +15,23 @@
 * [MultiQC](https://pubmed.ncbi.nlm.nih.gov/27312411/)
     > Ewels P, Magnusson M, Lundin S, Käller M. MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics. 2016 Oct 1;32(19):3047-8. doi: 10.1093/bioinformatics/btw354. Epub 2016 Jun 16. PubMed PMID: 27312411; PubMed Central PMCID: PMC5039924.
 
+* [Trimgalore](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/)
+
+* [BWA](https://github.com/lh3/bwa)
+
+* [Picard](https://broadinstitute.github.io/picard/)
+
+* [Samtools](http://www.htslib.org/)
+
+* [Parsing SSDS](https://genome.cshlp.org/content/22/5/957)
+    > Khil P, Smagulova F, Brick K, Camerini-Otero RD, Petukhova G. Sensitive mapping of recombination hotspots using sequencing-based detection of ssDNA. Genome Research. 2012 May;22(5):957-65. doi: 10.1101/gr.130583.111. Epub 2012 Feb 24. PubMed PMID:  22367190; PubMed Central PMCID: PMC3337440.
+    
+* [Bedtools](https://bedtools.readthedocs.io/en/latest/)
+    >Quinlan A, Hall I. BEDTools: a flexible suite of utilities for comparing genomic features. Bioinformatics. 2010 Mar 15;26(6):841-42. doi: 10.1093/bioinformatics/btq033. PubMed PMID: 20110278; PubMed Central PMCID: PMC2832824.
+
+* [Deeptools](https://deeptools.readthedocs.io/en/develop/)
+    >Ramírez F, Ryan DP, Grüning B, Bhardwaj V, Kilpert F, Richter AS, Heyne S, Dündar F, Manke T. deepTools2: A next Generation Web Server for Deep-Sequencing Data Analysis. Nucleic Acids Research (2016). doi:10.1093/nar/gkw257
+    
 ## Software packaging/containerisation tools
 
 * [Anaconda](https://anaconda.com)
@@ -30,3 +47,16 @@
 
 * [Singularity](https://pubmed.ncbi.nlm.nih.gov/28494014/)
     > Kurtzer GM, Sochat V, Bauer MW. Singularity: Scientific containers for mobility of compute. PLoS One. 2017 May 11;12(5):e0177459. doi: 10.1371/journal.pone.0177459. eCollection 2017. PubMed PMID: 28494014; PubMed Central PMCID: PMC5426675.
+
+    # nf-core/ssds: Citations
+
+    ## [nf-core](https://pubmed.ncbi.nlm.nih.gov/32055031/)
+
+    > Ewels PA, Peltzer A, Fillinger S, Patel H, Alneberg J, Wilm A, Garcia MU, Di Tommaso P, Nahnsen S. The nf-core framework for community-curated bioinformatics pipelines. Nat Biotechnol. 2020 Mar;38(3):276-278. doi: 10.1038/s41587-020-0439-x. PubMed PMID: 32055031.
+
+    ## [Nextflow](https://pubmed.ncbi.nlm.nih.gov/28398311/)
+
+    > Di Tommaso P, Chatzou M, Floden EW, Barja PP, Palumbo E, Notredame C. Nextflow enables reproducible computational workflows. Nat Biotechnol. 2017 Apr 11;35(4):316-319. doi: 10.1038/nbt.3820. PubMed PMID: 28398311.
+
+    ## Pipeline tools
+

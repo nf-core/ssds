@@ -72,21 +72,27 @@ def calculate_spot(bed, bam, reads_id):
         reads = BedTool(bed)
         intervals_bed = intervals_bed.sort()
         rand_intervals_bed = rand_intervals.sort()
+        at_intervals = intervals_bed.intersect(
+            b=reads, c=True, sorted=True, stream=True
+        )
+        at_random = rand_intervals_bed.intersect(
+            b=reads, c=True, sorted=True, stream=True
+        )
     elif bam is not None:
         reads = BedTool(bam)
-        intervals_bed = intervals_bed.sort(g=args.g)
-        rand_intervals_bed = rand_intervals.sort(g=args.g)
+        intervals_bed = intervals_bed.sort(faidx=args.g)
+        rand_intervals_bed = rand_intervals.sort(faidx=args.g)
+        at_intervals = intervals_bed.intersect(
+            b=reads, c=True, sorted=True, stream=True, g=args.g
+        )
+        at_random = rand_intervals_bed.intersect(
+            b=reads, c=True, sorted=True, stream=True, g=args.g
+        )
     else:
         sys.exit("Reads BED / BAM not provided")
 
-    at_intervals = intervals_bed.intersect(
-        b=reads, c=True, sorted=True, stream=True
-    ).sort()
-
     for i in at_intervals:
         counts[i.name] = counts[i.name] + i.count
-
-    at_random = rand_intervals_bed.intersect(b=reads, c=True, sorted=True, stream=True)
 
     for i in at_random:
         counts[i.name + "(R)"] = counts[i.name + "(R)"] + i.count
