@@ -5,8 +5,8 @@ process MULTIQC {
 
     conda (params.enable_conda ? "bioconda::multiqc=1.10.1" : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        "docker://kevbrick/multiqc_ssds:2.3" :
-        "kevbrick/multiqc_ssds:2.3"}"
+        "docker://kevbrick/multiqc_ssds:2.4" :
+        "kevbrick/multiqc_ssds:2.4"}"
 
     input:
     path multiqc_files
