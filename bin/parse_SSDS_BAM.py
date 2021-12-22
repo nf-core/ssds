@@ -96,7 +96,12 @@ def PRINT_SSDS_REPORT(prefix, report_dict):
         "unclassified_fragments",
         "total_fragments",
         "valid_fragments",
+        "unmapped",
         "filtered_fragments",
+        "fragment_too_long",
+        "fragment_too_short",
+        "alignment_too_short",
+        "supplementary_alignment",
     ]:
         out_report.write(
             "totinfo" + "\t" + field + "\t" + str(report_dict["totinfo"][field]) + "\n"
@@ -147,7 +152,12 @@ report_details = {
         "unclassified_fragments": 0,
         "total_fragments": 0,
         "valid_fragments": 0,
+        "unmapped": 0,
         "filtered_fragments": 0,
+        "fragment_too_long": 0,
+        "fragment_too_short": 0,
+        "alignment_too_short": 0,
+        "supplementary_alignment": 0,
     }
 }
 
@@ -205,11 +215,28 @@ for read in samfile:
 
     if not read1 is None and not read2 is None and read1.query_name == read2.query_name:
 
+        if read1.is_unmapped or read2.is_unmapped:
+            report_details["totinfo"]["unmapped"] += 1
+            report_details["totinfo"]["filtered_fragments"] += 1
+            continue
+
         if (abs(read1.reference_start - read2.reference_start)) > 10000:
+            report_details["totinfo"]["fragment_too_long"] += 1
+            report_details["totinfo"]["filtered_fragments"] += 1
+            continue
+
+        if abs(read1.template_length) < 35 or abs(read2.template_length) < 35:
+            report_details["totinfo"]["fragment_too_short"] += 1
+            report_details["totinfo"]["filtered_fragments"] += 1
+            continue
+
+        if abs(read1.reference_length) < 35 or abs(read2.reference_length) < 35:
+            report_details["totinfo"]["alignment_too_short"] += 1
             report_details["totinfo"]["filtered_fragments"] += 1
             continue
 
         if read1.is_supplementary or read2.is_supplementary:
+            report_details["totinfo"]["supplementary_alignment"] += 1
             report_details["totinfo"]["filtered_fragments"] += 1
             continue
 
