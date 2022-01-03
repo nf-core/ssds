@@ -3,14 +3,56 @@
     "homePage": "https://github.com/nf-core/ssds",
     "repos": {
         "nf-core/modules": {
+            "bedtools/bamtobed": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "bedtools/makewindows": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "bedtools/sort": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "bwa/index": {
+                "git_sha": "20d8250d9f39ddb05dfb437603aaf99b5c0b2b41"
+            },
+            "bwa/mem": {
+                "git_sha": "1765225042d40cf01eb9469ea95bf6d0f6810937"
+            },
             "custom/dumpsoftwareversions": {
                 "git_sha": "20d8250d9f39ddb05dfb437603aaf99b5c0b2b41"
+            },
+            "deeptools/plotfingerprint": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
             },
             "fastqc": {
                 "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
             },
             "multiqc": {
                 "git_sha": "20d8250d9f39ddb05dfb437603aaf99b5c0b2b41"
+            },
+            "picard/collectmultiplemetrics": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "picard/markduplicates": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "picard/sortsam": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "samtools/idxstats": {
+                "git_sha": "20d8250d9f39ddb05dfb437603aaf99b5c0b2b41"
+            },
+            "samtools/index": {
+                "git_sha": "0fafaeebf52cc5ab554b83297ed02a48d852a848"
+            },
+            "samtools/view": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "trimgalore": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
+            },
+            "ucsc/bedgraphtobigwig": {
+                "git_sha": "9d0cad583b9a71a6509b754fdf589cbfbed08961"
             }
         }
     }
