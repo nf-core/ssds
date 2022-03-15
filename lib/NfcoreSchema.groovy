@@ -27,7 +27,7 @@ class NfcoreSchema {
     /* groovylint-disable-next-line UnusedPrivateMethodParameter */
     public static void validateParameters(workflow, params, log, schema_filename='nextflow_schema.json') {
         def has_error = false
-        //=====================================================================//
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         // Check for nextflow core params and unexpected params
         def json = new File(getSchemaPath(workflow, schema_filename=schema_filename)).text
         def Map schemaParams = (Map) new JsonSlurper().parseText(json).get('definitions')
@@ -135,7 +135,7 @@ class NfcoreSchema {
             }
         }
 
-        //=====================================================================//
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         // Validate parameters against the schema
         InputStream input_stream = new File(getSchemaPath(workflow, schema_filename=schema_filename)).newInputStream()
         JSONObject raw_schema = new JSONObject(new JSONTokener(input_stream))
@@ -362,7 +362,7 @@ class NfcoreSchema {
             }
         }
         for (ex in causingExceptions) {
-            printExceptions(ex, params_json, log)
+            printExceptions(ex, params_json, log, enums)
         }
     }
 

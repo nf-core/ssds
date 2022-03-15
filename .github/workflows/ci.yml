@@ -8,14 +8,16 @@ on:
   release:
     types: [published]
 
+env:
+  NXF_ANSI_LOG: false
+  CAPSULE_LOG: none
+
 jobs:
   test:
-    name: Run workflow tests
+    name: Run pipeline with test data
     # Only run on push if this is the nf-core dev branch (merged PRs)
     if: ${{ github.event_name != 'push' || (github.event_name == 'push' && github.repository == 'nf-core/ssds') }}
     runs-on: ubuntu-latest
-    env:
-      NXF_ANSI_LOG: false
     strategy:
       matrix:
         # Nextflow versions
@@ -32,7 +34,6 @@ jobs:
 
       - name: Install Nextflow
         env:
-          CAPSULE_LOG: none
           NXF_VER: ${{ matrix.NXF_VER }}
           # Uncomment only if the edge release is more recent than the latest stable release
           # See https://github.com/nextflow-io/nextflow/issues/2467
@@ -40,11 +41,10 @@ jobs:
         run: |
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
-          nextflow self-update
 
       - name: Run pipeline with test data
         # TODO nf-core: You can customise CI pipeline run tests as required
         # For example: adding multiple test runs with different parameters
         # Remember that you can parallelise this by using strategy.matrix
         run: |
-          nextflow run ${GITHUB_WORKSPACE} -profile test,docker
+          nextflow run ${GITHUB_WORKSPACE} -profile test,docker --outdir ./results
