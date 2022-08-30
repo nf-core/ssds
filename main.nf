@@ -4,7 +4,7 @@
     nf-core/ssds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Github : https://github.com/nf-core/ssds
-    Website: https://nf-co.re/ssds
+Website: https://nf-co.re/ssds
     Slack  : https://nfcore.slack.com/channels/ssds
 ----------------------------------------------------------------------------------------
 */
